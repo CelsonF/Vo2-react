@@ -5,7 +5,7 @@ function App() {
 
 
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center items-center dark:bg-gray-800 dark:border-gray-700'>
       <Preview/> 
       <CalculatorVo2/>
     </div>

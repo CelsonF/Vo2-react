@@ -22,7 +22,7 @@ export default function CalculatorVo2() {
             <div>
                 <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an Gender</label>
                 <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option selected >Choose a country</option>
+                    <option selected>Choose a Gender</option>
                     <option value="1" onClick={() => setGender(1)}> Man </option>
                     <option value="0" onClick={() => setGender(0)}> Woman </option>
                 </select>
@@ -31,37 +31,55 @@ export default function CalculatorVo2() {
                 <label htmlFor="weight" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Weight (kg):
                 </label>
-                <input type="number" id="weight" name="weight" value={weight} onChange={(e) => setWeight(Number(e.target.value))}
+                <input 
+                    type="number" 
+                    id="weight" 
+                    name="weight" 
+                    value={weight} 
+                    onChange={(e) => setWeight(Number(e.target.value))}
+                    required
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
             </div>
             <div>
-                <label>
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Age:
-                    <input type="number" value={age} onChange={(e) => setAge(Number(e.target.value))}
+                </label>
+                    <input 
+                        type="number" 
+                        value={age} 
+                        onChange={(e) => setAge(Number(e.target.value))}
+                        required
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
-                </label>
             </div>
             <div>
-                <label>
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Time (minutes):
-                    <input type="number" value={time} onChange={(e) => setTime(Number(e.target.value))}
+                </label>
+                    <input 
+                        type="number"
+                        value={time} 
+                        onChange={(e) => setTime(Number(e.target.value))}
+                        required
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
-                </label>
             </div>
             <div>
-                <label>
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Heart Rate (bpm):
-                    <input type="number" value={heartRate} onChange={(e) => setHeartRate(Number(e.target.value))}
+                </label>
+                    <input 
+                        type="number" 
+                        value={heartRate} 
+                        onChange={(e) => setHeartRate(Number(e.target.value))}
+                        required
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
-                </label>
             </div>
-            <button onClick={calculateVo2Max} className="border bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">Calculate VO2Max</button>
+            <button type="button" onClick={calculateVo2Max} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Calculate VO2Max</button>
             {vo2Max !== null && (
-                <div>
+                <div className="py-4 text-3xl font-extrabold text-gray-900 dark:text-white">
                     <h2>Your VO2Max is: {vo2Max.toFixed(5)} mL/kg/min</h2>
                 </div>
             )}
